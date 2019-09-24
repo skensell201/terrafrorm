@@ -1,13 +1,14 @@
-Install Terraform --> I use MacOS so I'll usage "brew"
+**Install Terraform --> I use MacOS so I'll usage "brew"**
 
-$ brew install terraform
+>$ brew install terraform
 
-Create directory which will be contain our files *.tf
+**Create directory which will be contain our files .tf**
 
-$ mkdir Terraform_examples
+>$ mkdir Terraform_examples
 
-Create first file example.tf with contains initialization data of our Tarraform and simple code for create instance on AWS
+**Create first file example.tf with contains initialization data of our Tarraform and simple code for create instance on AWS**
 
+```
 provider "aws" {
   region                  = "us-east-2"
   shared_credentials_file = "$HOME/.aws/credentials"
@@ -25,8 +26,16 @@ resource "aws_instance" "Ubuntu" {
     Project = "My Terraform Lessons"
   }
 }
+```
 
-After save this file you can (MUST!) see "plan" deployment to AWS
 
-$ terraform plan -out planfile  // Show you plan deployment and write this information to "planfile"
-$ terraform apply planfile      // Apply our deployment with help planfile, this method is good practice because you save information before deployment
+**After save this file you can (MUST!) see "plan" deployment to AWS**
+
+// Next command show you plan deployment and write this information to "planfile"
+
+>$ terraform plan -out planfile
+
+// Apply our deployment with help planfile, this method is good practice because you save information before deployment
+
+>$ terraform apply planfile
+
