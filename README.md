@@ -39,3 +39,6 @@ Apply our deployment with help planfile, this method is good practice because yo
 
 ```$ terraform apply planfile```
 
+If you usage awscli you can use this command. Command show you next information Name,ID,State,IP and Instance type
+
+```$ aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[Tags[?Key==`Name`].Value | [0],InstanceId,Platform,State.Name,PrivateIpAddress,PublicIpAddress,InstanceType,KeyName]' --output table | sort -k5
